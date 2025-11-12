@@ -210,7 +210,7 @@ Presiona space después de un game over, para pasar de "game over" a "ejecución
 Captura el estado inicial del juego en el vector de 4, justo después de que el juego comienza.  
 Devuelve la observación inicial y un diccionario info vacío.  
 
-# Entrenamiento.py  
+#    Entrenamiento.py  
 Es el script principal encargado de configurar, iniciar y gestionar el proceso de entrenamiento del agente de Reinforcement Learning (Aprendizaje por Refuerzo) Deep Q-Network (DQN) para jugar al Dino Game.
 
 Su función es orquestar la interacción entre el entorno de juego (DinoEntorno) y el algoritmo de aprendizaje (stable_baselines3.DQN).
@@ -329,7 +329,7 @@ Comienza el entrenamiento y da 3 segundos para enfocar la pantalla en el juego d
 El try de ser exitoso el agente interactuará con el entorno y aprenderá de las recompensas, y actualiza su red neuronal durante el número de pasos específicos, y así el método model.learn se completa (los 800000 se completan el modelo se guarda e imprime un aviso diciendo que se guardó exitosamente).  
 En caso de haber alguna interrupción hace un guardado de emergencia para evitar la pérdida de progreso.  
 
-# JuegaIA 
+#    JuegaIA 
 Es el script de ejecución que te permite cargar el modelo DQN previamente entrenado (dino_IA.zip) e iniciar el juego para que la Inteligencia Artificial juegue al Dino Game de forma autónoma.  
 
 # jugar_con_ia
