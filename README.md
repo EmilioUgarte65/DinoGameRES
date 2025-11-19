@@ -10,17 +10,42 @@ Python versión 3.9
 
 ### librerías necesarias.
 
-* Stable-Baseline3 2.7.0  
-* PyTorch 2.8.0+cpu  
-* Gymnasium  
-* opencv-python  
-* mss  
-* pynput  
-* pyautogui  
-* numpy
+* Stable-Baseline3 2.7.0: Implementa algoritmos de aprendizaje por refuerzo en PyTorch  
+* PyTorch 2.8.0+cpu: Es la versión del framework PyTorch optimizada para ejecutarse únicamente en CPU.  
+* Gymnasium 1.1.1: Provee un conjunto estándar de entornos y una API para desarrollar y entrenar algoritmos de aprendizaje por refuerzo.   
+* opencv-python 4.12.0.88 : Es una librería de visión por computadora y procesamiento de imágenes.   
+* mss 10.1.0: Permite capturar la pantalla completa o regiones específicas.  
+* pynput 1.8.1: Simular pulsaciones de teclas.    
+* pyautogui 0.9.54: Controlar personajes o realizar acciones automáticas.    
+* numpy 2.0.2.
   
 El agente fue entrenado solamente con la CPU (13th Gen Intel(R) Core(TM) i7-13700HX).  
-Resolución de pantalla 1920 * 1200 (Esto es importante ya que usamos los pixeles en pantalla en puntos específicos para que el Código funcione).
+Resolución de pantalla 1920 * 1200 (Esto es importante ya que usamos los pixeles en pantalla en puntos específicos para que el Código funcione). En caso de 
+# Instrucciones de Uso
+
+### Cerebro
+
+Este script se usara para verificar que el programa detecte el rectángulo del juego y los obstáculos ya que este mismo muestra la imagen mientas juega para poder ver los pixeles que la IA tomara de referencia, de igual manera esta es la forma en la que el juego se hace de manera "Manual".  
+
+<img width="750" height="140" alt="image" src="https://github.com/user-attachments/assets/78bae4c5-b716-4b03-acd9-e04b098171d8" />  
+
+ROI_DINO_GAME Tiene los valores correspondientes al rectángulo que vera nuestro programa.  
+X_DINO Tiene la ubicación del dinosaurio.  
+DISTANCIA_SALTO =95    Distancia en pixeles delante del dinosaurio (Este se puede ser cambiado de así requerirlo si el dinosaurio no salta bien el obstáculo y se queda a medias).  
+Collision_Y es la línea donde se detectarán los obstáculos.
+
+<img width="770" height="656" alt="image" src="https://github.com/user-attachments/assets/76d13308-1ab8-43b6-b967-a890955bd90d" />
+
+
+Nota: En caso de tener la misma resolución de pantalla se recomienda usar Google Chrome sin la barra de favoritos.
+
+# Parámetros del modelo
+Algoritmo: DQN (Deep QNetwork).  
+### Parámetros clave de Entrenamiento.py:  
+* Tasa de Aprendizaje (learning_rate): 0.0005.  
+* Tamaño del Buffer de Replay (buffer_size): 100,000. 
+* Exploración final (exploration_final_eps): 0.01.  
+* Timesteps Totales: 800,000.
 
 # Estructura de observación.
 
@@ -35,28 +60,7 @@ Para pasarle información al agente sobre el movimiento y la velocidad de los ob
 * El agente recibe las 4 ultimas observaciones base de manera secuencial.
 * La red neuronal recibe un vector de 16 valores (Los 4 valores * los 4 frames que se le da).
 
-# Instrucciones de Uso
 
-### Cerebro
-
-Este script se usara para verificar que el programa detecte el rectángulo del juego y los obstáculos ya que este mismo muestra la imagen mientas juega para poder ver los pixeles que la IA tomara de referencia, de igual manera esta es la forma en la que el juego se hace de manera "Manual".  
-
-<img width="750" height="140" alt="image" src="https://github.com/user-attachments/assets/78bae4c5-b716-4b03-acd9-e04b098171d8" />  
-
-ROI_DINO_GAME Tiene los valores correspondientes al rectángulo que vera nuestro programa.  
-X_DINO Tiene la ubicación del dinosaurio.  
-DISTANCIA_SALTO =95    Distancia en pixeles delante del dinosaurio (Este se puede ser cambiado de así requerirlo si el dinosaurio no salta bien el obstáculo y se queda a medias).  
-Collision_Y es la línea donde se detectarán los obstáculos.
-
-Nota: En caso de tener la misma resolución de pantalla se recomienda usar Google Chrome sin la barra de favoritos.
-
-# Parámetros del modelo
-Algoritmo: DQN (Deep QNetwork).  
-### Parámetros clave de Entrenamiento.py:  
-* Tasa de Aprendizaje (learning_rate): 0.0005.  
-* Tamaño del Buffer de Replay (buffer_size): 100,000. 
-* Exploración final (exploration_final_eps): 0.01.  
-* Timesteps Totales: 800,000.
 
 #   DinoEntorno 
 ### Class DinoEntrono  
